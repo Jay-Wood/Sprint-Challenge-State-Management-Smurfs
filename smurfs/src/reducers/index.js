@@ -1,9 +1,9 @@
 import {
     FETCH_DATA_START, 
     FETCH_DATA_SUCCESS, 
-    FETCH_DATA_FAILURE }
-    from "../actions";
-
+    FETCH_DATA_FAILURE,
+    ADD_POST 
+} from "../actions";
 
 const initialState = {
     smurfs: [],
@@ -32,6 +32,16 @@ export const reducer = (state = initialState, action) => {
                 // isLoading: false, 
                 error: action.payload
             }
+        case ADD_POST: 
+            return[
+                ...state,
+                action.payload
+            ]
+        // case POST_DATA_SUCCESS:
+        //     return{}
+
+        // case POST_DATA_FAILURE:
+
         default: return state;
     }
 }
