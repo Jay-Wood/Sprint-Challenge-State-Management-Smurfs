@@ -23,11 +23,15 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+Allows us two wrap several components in a Provider, which lets those components access state (vs. props drilling)
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+Store: holds our state tree. The actions fire and feed into our reducers. Reducers send instructions to the store on how to update the state, and the store then feeds updated info back in the UI. The store is the single source of state, so that’s why it’s referred to thusly. 
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+Component state is local to that component. Application state is global. For smaller apps, we may not need to bother with setting up a global/App state. As we scale up, however, and our apps get bigger and more complex, we benefit from having one state to worry about, rather than several states spread across several components. 
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+Allows us to run operations asynchronously. We now pass our action creators into another function (e.g., fetchDataFromAPI) and then our action creators get called during/after that outer function. Thunk basically lets us make our action creators “thunks” aka inner functions. 
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
-
+This week was so fast and shallow in terms of understanding the various systems, that I’m not familiar enough with any of them to have a favorite. I barely understand any of them!
 ## Project Set Up
 
 Follow these steps to set up your project:
