@@ -1,5 +1,18 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+// import {postSmurfData} from "../actions";
 
+const postSmurfData = (obj) => {
+    axios.post("http://localhost:3333/smurfs", obj)
+    .then(response => {
+        console.log("post success", response)
+        // dispatch(postSuccess(response.data))
+    })
+    .catch(err => {
+        console.log("post err:", err)
+    })
+}
 
 class SmurfForm extends React.Component {
     state = {
@@ -17,7 +30,8 @@ class SmurfForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         if (this.state.name.trim() && this.state.height.trim() && this.state.age.trim()) {
-            console.log(this.state);
+            console.log("handle Submit this.state", this.state);
+            postSmurfData(this.state)
             this.handleReset();
         }
     };
@@ -29,31 +43,6 @@ class SmurfForm extends React.Component {
             height: ""
         });
     };
-
-    /*const [newSmurfName, setNewSmurfName] = useState("")
-    const [newSmurfHeight, setNewSmurfHeight] = useState("")
-    const [newSmurfAge, setNewSmurfAge] = useState("")
-    const [newSmurf, setNewSmurf] = useState(
-        {
-            name: "",
-            age: "",
-            height: null
-        }
-    )
-    const handleInputChange = e => {
-        setNewSmurf({
-            [e.target.name]: e.target.value
-        });
-    }
-    const handleNameChanges = e => {
-        setNewSmurfName(e.target.value) 
-    }
-    const hangleHeightChanges = e => {
-        setNewSmurfHeight(e.target.value)
-    }
-    const hangleAgeChanges = e => {
-        setNewSmurfAge(e.target.value)
-    } */
 
     render() {
         return (
@@ -94,3 +83,14 @@ class SmurfForm extends React.Component {
 }
 
 export default SmurfForm;
+
+// const mapStateToProps = state => {
+//     return{
+//         isLoading: state.isLoading
+//     }
+// }
+
+// export default connect(
+//     mapStateToProps, 
+//     {postSmurfData}
+// )(SmurfForm)

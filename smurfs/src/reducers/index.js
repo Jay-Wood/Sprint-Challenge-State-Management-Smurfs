@@ -32,15 +32,12 @@ export const reducer = (state = initialState, action) => {
                 // isLoading: false, 
                 error: action.payload
             }
-        case ADD_POST: 
-            return[
-                ...state,
-                action.payload
-            ]
-        // case POST_DATA_SUCCESS:
-        //     return{}
-
-        // case POST_DATA_FAILURE:
+        // case ADD_POST: 
+        //     // console.log("add post payload", action.payload)
+        //     return[
+        //         ...state,
+        //         action.payload
+        //     ]
 
         default: return state;
     }

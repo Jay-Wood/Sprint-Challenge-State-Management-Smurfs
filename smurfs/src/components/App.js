@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import { getSmurfData } from "../actions";
 import SmurfList from "./SmurfList";
 import SmurfForm from "./SmurfForm";
+import CreateSmurf from "../containers/CreateSmurf";
 
 class App extends Component {
   render() {
